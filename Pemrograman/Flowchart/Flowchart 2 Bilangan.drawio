@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-27T16:30:09.567Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" etag="G5l-Hm-DrAClo_L3-jy3" version="15.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-08-28T13:39:41.725Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" etag="IU2LZdN1mJojN-P2XFV2" version="15.0.3" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="830" dy="463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="981" dy="529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -19,7 +19,7 @@
             <mxPoint x="129.9" y="220.00407292930822" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="vwx4sAJHxTmubtFgnzTb-7" value="pilihan&amp;nbsp;&lt;br&gt;==&lt;br&gt;jml" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="vwx4sAJHxTmubtFgnzTb-7" value="pilihan&amp;nbsp;&lt;br&gt;==&lt;br&gt;&quot;jml&quot;" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="280" y="100" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="vwx4sAJHxTmubtFgnzTb-9" value="True" style="endArrow=classic;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" parent="WIyWlLk6GJQsqaUBKTNV-1" edge="1">
@@ -34,7 +34,7 @@
             <mxPoint x="129.70999999999998" y="320.0040729293081" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="vwx4sAJHxTmubtFgnzTb-12" value="pilihan&amp;nbsp;&lt;br&gt;==&lt;br&gt;kali" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="vwx4sAJHxTmubtFgnzTb-12" value="pilihan&amp;nbsp;&lt;br&gt;==&lt;br&gt;&quot;kali&quot;" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="280" y="220" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="vwx4sAJHxTmubtFgnzTb-13" value="True" style="endArrow=classic;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" parent="WIyWlLk6GJQsqaUBKTNV-1" edge="1">
@@ -141,7 +141,7 @@
             <mxPoint x="330" y="430" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="JZl8EYeRutpev5pqyIwJ-0" value="" style="endArrow=classic;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="JZl8EYeRutpev5pqyIwJ-0" value="" style="endArrow=classic;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="129.68" y="80" as="sourcePoint" />
             <mxPoint x="129.57999999999998" y="120.00407292930822" as="targetPoint" />
