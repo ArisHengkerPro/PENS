@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int jumlah(int a, int b){
+int Jumlah(int a, int b){
 	return a+b;
 }
 
@@ -11,6 +11,6 @@ int main(){
 	cout << "Masukkan nilai a dan b : ";
 	cin >> a >> b;
 	
-	hasil = jumlah(a, b);
+	hasil = Jumlah(a, b);
 	cout << hasil;
 }
