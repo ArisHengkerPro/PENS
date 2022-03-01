@@ -1,22 +1,25 @@
 #include <iostream>
 using namespace std;
 
-bool IsDouble(int array[], int size){
+const int a = 2, b = 3;
+
+int Print(int array[a][b][b]){
 	
-	for(int i = 0; i < size; i++){
-		for(int j = i+1; j < size; j++){
-			for(int k = i+1; k < size; k++){
-				if(array[i] == array[k]) return true;
+	for(int i = 0; i < a; i++){
+		for(int j = 0; j < b; j++){
+			for(int k = 0; k < b; k++){
+				cout << array[i][j][k] << "\t";
 			}
+			cout << endl;
 		}
 	}
 	return false;
 }
 
-int main(){
-	int angka[] = {23, 71, 32, 103, 42, 23};
-	int size = sizeof(angka)/sizeof(*angka);
+int main(){	
+	int angka[a][b][b] = {{{10, 2, 20}, {100, 4, 5}, {12, 13, 14}}, 
+	{{2000, 23, 122}, {120, 230, 120}, {12, 69, 20}}};
 	
-	bool state = IsDouble(angka, size);
-	cout << state << endl;
+	Print(angka);
+	
 }
