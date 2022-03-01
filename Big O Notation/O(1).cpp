@@ -10,4 +10,7 @@ int main(){
 	
 	cout << "Masukkan nilai a dan b : ";
 	cin >> a >> b;
+	
+	hasil = jumlah(a, b);
+	cout << hasil;
 }
