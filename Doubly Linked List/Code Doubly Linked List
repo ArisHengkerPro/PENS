@@ -6,179 +6,160 @@ struct Motor{
 	Motor *prev, *next;
 };
 
-Motor *start, *end, *current, *newNode, *del, *afterNode;
+Motor *start, *end;
+int jumlahLinkedList = 0;
 
-void CreateDoublyLinkedList(string dataMotor[3]){
+void CreateDoublyLinkedList(string merkMotor, string nomorMotor, string typeMotor){
 	start = new Motor();
 	
-	start->merk = dataMotor[0];
-	start->nomorKendaraan = dataMotor[1];
-	start->type = dataMotor[2];
+	start->merk = merkMotor;
+	start->nomorKendaraan = nomorMotor;
+	start->type = typeMotor;
 	start->prev = NULL;
 	start->next = NULL;
-	end = start; 
+	end = start;
+	jumlahLinkedList = jumlahLinkedList + 1;
 }
 
-int CountDoublyLinkedList(){
+void Checker(){
 	if(start == NULL){
-		cout << "Tidak ada data pada doubly linked list";
-	}else{
+		cout << "Tidak ada data pada doubly linked list" << endl;
+		exit(0);
+	}
+}
+
+void AddNodeAtFirst(string merkMotor, string nomorMotor, string typeMotor){
+	Motor *newNode;
+	
+	Checker();
+	newNode = new Motor();
 		
+	newNode->merk = merkMotor;
+	newNode->nomorKendaraan = nomorMotor;
+	newNode->type = typeMotor;
+	newNode->prev = NULL;
+	newNode->next = start;
+	start->prev = newNode;
+	start = newNode;
+	jumlahLinkedList = jumlahLinkedList + 1;
+}
+
+void AddNodeAtLast(string merkMotor, string nomorMotor, string typeMotor){
+	Motor *newNode;
+	Checker();
+	
+	newNode = new Motor();
+		
+	newNode->merk = merkMotor;
+	newNode->nomorKendaraan = nomorMotor;
+	newNode->type = typeMotor;
+	newNode->prev = end;
+	newNode->next = NULL;
+	end->next = newNode;
+	end = newNode;
+	jumlahLinkedList = jumlahLinkedList + 1;
+}
+
+void AddNodeAtMiddle(string merkMotor, string nomorMotor, string typeMotor, int posisi){
+	Motor *current, *newNode, *afterNode;
+	
+	Checker();
+	if(posisi <= 1 || posisi > jumlahLinkedList){
+		cout << "Posisi diluar jangkauan atau bukan posisi tengah"<< "\n"  << endl;
+	}else{
+		newNode = new Motor();
+			
+		newNode->merk = merkMotor;
+		newNode->nomorKendaraan = nomorMotor;
+		newNode->type = typeMotor;
+			
+		//trafers
 		current = start;
-		int jumlah = 0;
-		
-		while(current != NULL){
-			jumlah++;
+		int nomor = 1;
+		while(nomor < posisi-1){
 			current = current->next;
+			nomor++;
 		}
-		return jumlah;
-	}
-}
-
-
-void AddNodeAtFirst(string dataMotor[3]){
-	if(start == NULL){
-		cout << "Tidak ada data pada doubly linked list";
-	}else{
-		newNode = new Motor();
-		
-		newNode->merk = dataMotor[0];
-		newNode->nomorKendaraan = dataMotor[1];
-		newNode->type = dataMotor[2];
-		newNode->prev = NULL;
-		newNode->next = start;
-		start->prev = newNode;
-		start = newNode;
-	}
-}
-
-void AddNodeAtLast(string dataMotor[3]){
-	if(start == NULL){
-		cout << "Tidak ada data pada doubly linked list";
-	}else{
-		newNode = new Motor();
-		
-		newNode->merk = dataMotor[0];
-		newNode->nomorKendaraan = dataMotor[1];
-		newNode->type = dataMotor[2];
-		newNode->prev = end;
-		newNode->next = NULL;
-		end->next = newNode;
-		end = newNode;
-	}
-}
-
-void AddNodeAtMiddle(string dataMotor[3], int posisi){
-	if(start == NULL){
-		cout << "Tidak ada data pada doubly linked list";
-	}else{
-		if(posisi == 1){
-			cout << "Posisi 1 bukan posisi tengah!"<< "\n"  << endl;
-		}else if ( posisi == 1 || posisi > CountDoublyLinkedList() ){
-			cout << "Posisi diluar jangkau!"<< "\n"  << endl;
-		}else{
-			newNode = new Motor();
-			
-			newNode->merk = dataMotor[0];
-			newNode->nomorKendaraan = dataMotor[1];
-			newNode->type = dataMotor[2];
-			
-			//transfersing
-			current = start;
-			int nomor = 1;
-			while(nomor < posisi-1){
-				current = current->next;
-				nomor++;
-			}
-			afterNode = current->next;
-			newNode->prev = current;
-			newNode->next = afterNode;
-			current->next = newNode;
-			afterNode->prev = newNode;
-		}
+		afterNode = current->next;
+		newNode->prev = current;
+		newNode->next = afterNode;
+		current->next = newNode;
+		afterNode->prev = newNode;
+		jumlahLinkedList = jumlahLinkedList + 1;
 	}
 }
 
 void PrintDoublyLinkedList(){
-	if(start == NULL){
-		cout << "Tidak ada data pada doubly linked list";
-	}else{
-		cout << "Isi Doubly Linked List sekarang : " << CountDoublyLinkedList() << endl;
-		cout << "Isi data sekarang : " << "\n" << endl;
-		current = start;
-		while(current != NULL){
-			cout << "Merek Motor : " << current->merk << endl;
-			cout << "Nomor Kendaraan : " << current->nomorKendaraan << endl;
-			cout << "Tipe Motor : " << current->type << "\n"<< endl;
-			current = current->next;
-		}
-		
+	Motor *current, *newNode;
+	Checker();
+	
+	cout << "Isi Doubly Linked List sekarang : " << jumlahLinkedList << endl;
+	cout << "Isi data : " << "\n" << endl;
+	current = start;
+	while(current != NULL){
+		cout << "Merek Motor : " << current->merk << endl;
+		cout << "Nomor Kendaraan : " << current->nomorKendaraan << endl;
+		cout << "Tipe Motor : " << current->type << "\n"<< endl;
+		current = current->next;
 	}
 }
 
 void RemoveNodeAtFirst(){
-	if(start == NULL){
-		cout << "Tidak ada data pada doubly linked list";
-	}else{
-		del = start;
-		start = start->next;
-		start->prev = NULL;
-		delete del;
-	}
+	Motor *del;
+	Checker();
+	
+	del = start;
+	start = start->next;
+	start->prev = NULL;
+	delete del;
+	jumlahLinkedList = jumlahLinkedList - 1;
 }
 
 void RemoveNodeAtLast(){
-	if(start == NULL){
-		cout << "Tidak ada data pada doubly linked list";
-	}else{
-		del = end;
-		end = end->prev;
-		end->next = NULL;
-		delete del;
-	}
+	Motor *del;
+	Checker();
+	
+	del = end;
+	end = end->prev;
+	end->next = NULL;
+	delete del;
+	jumlahLinkedList = jumlahLinkedList - 1;
 }
 
 void RemoveNodeAtMiddle(int posisi){
-	if(start == NULL){
-		cout << "Tidak ada data pada doubly linked list";
-	}else{
-		if(posisi == 1 || posisi == CountDoublyLinkedList() ){
-			cout << "Posisi bukan posisi tengah!" << "\n" << endl;
-		}else if ( posisi < 1 || posisi > CountDoublyLinkedList() ){
-			cout << "Posisi melebihi jumlah data!" << "\n" << endl;
-		}else {
-			int nomor = 1;
-			current = start;
-			
-			while(nomor < posisi-1){
-				current = current->next;
-				nomor++;
-			}
-			del = current->next;
-			afterNode = del->next;
-			current->next = afterNode;
-			afterNode->prev = current;
-			delete del;
+	Motor *current, *del, *afterNode;
+	Checker();
+	
+	if(posisi <= 1 || posisi >= jumlahLinkedList ){
+		cout << "Posisi diluar jangkauan atau bukan posisi tengah!" << "\n" << endl;
+	}else {
+		int nomor = 1;
+		current = start;
+		
+		while(nomor < posisi-1){
+			current = current->next;
+			nomor++;
 		}
+		del = current->next;
+		afterNode = del->next;
+		current->next = afterNode;
+		afterNode->prev = current;
+		delete del;
+		jumlahLinkedList = jumlahLinkedList - 1;
 	}
 }
 
 int main(){
-	string data[3] = {"Honda", "L 2012 SO", "Matic"};
-	string data2[3] = {"Supra X", "L 1230 LO", "Manual"};
-	string data3[3] = {"Honda Mio", "L 1122 AA", "Matic"};
-	string data4[3] = {"Supra XX", "M 6928 PO", "Manual"};
-	
-	CreateDoublyLinkedList(data);
+	CreateDoublyLinkedList("Honda", "L 2012 SO", "Matic");
+	PrintDoublyLinkedList();
+		
+	AddNodeAtFirst("Supra X", "L 1230 LO", "Manual");
 	PrintDoublyLinkedList();
 	
-	AddNodeAtFirst(data2);
+	AddNodeAtLast("Honda Mio", "L 1122 AA", "Matic");
 	PrintDoublyLinkedList();
 	
-	AddNodeAtLast(data3);
-	PrintDoublyLinkedList();
-	
-	AddNodeAtMiddle(data4, 3);
+	AddNodeAtMiddle("Supra XX", "M 6928 PO", "Manual", 3);
 	PrintDoublyLinkedList();
 	
 	RemoveNodeAtMiddle(2);
